@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>Add new pizza</title>
+  <link rel="stylesheet" type="text/css" href="./app.css"/>
+</head>
+<body>
+    <div class="form-and-list-container">
+        <div class="container">
+            <h2 class="title">Add new pizza</h2>
+            <form id="form">
+            <div class="input-group">
+                <label for="name" class="label">Name</label>
+                <input id="name" type="text" class="input" maxlength="30" required oninput="onNameInputChange(event)">
+                <span id="name-error-message"></span>
+            </div>
+        
+            <div class="input-group">
+                <label for="price" class="label">Price</label>
+                <input id="price" type="number" min="0.01" step=".01" class="input" required>
+            </div>
+        
+            <div class="input-group">
+                <label for="heat" class="label">Heat</label>
+                <input id="heat" type="number" min="1" max="3" class="input">
+            </div>
+        
+            <div class="input-group">
+                <label for="ham" class="label">Toppings (choose at least 2):</label>
+                <div>
+                    <input type="checkbox" id="ham" value="Ham">
+                    <label for="ham">Ham</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="cheese" value="Cheese">
+                    <label for="cheese">Cheese</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="olives" value="Olives">
+                    <label for="olives">Olives</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="tomatoes" value="Tomatoes">
+                    <label for="tomatoes">Tomatoes</label>
+                  </div>
+                  <div id="toppings-error"></div>
+            </div>
+
+            <div class="input-group">
+              <label for="photo" class="label">Choose a photo: </label>
+                  <select name="photo" id="photo">
+                  <option disabled selected value> -- select an option -- </option>
+                  <option value="./assets/Pizza-with-ham.jpg">Pizza with Ham</option>
+                  <option value="./assets/Pizza-with-cheese.jpg">Pizza with Cheese</option>
+                  <option value="./assets/Pizza-with-olives.jpg">Pizza with Olives</option>
+                  <option value="./assets/Pizza-with-tomatoes.jpg">Pizza with Tomatoes</option>
+                  </select>
+              </div>
+              <input type="submit" class="button" value="Add pizza">
+            </form>
+        </div>
+        <div class="container">
+            <h2 class="title">Pizza Menu</h2>
+            <div class="sort">
+              <label for="sort" class="label">Sort by:  
+                <button id="sort" class="sort-button" onclick="sortByName()">Name</button>
+                <button class="sort-button" onclick="sortByPrice()">Price</button>
+                <button class="sort-button" onclick="sortByHeat()">Heat</button>
+              </label>
+            </div>
+            <div id="pizza-menu-container" class="pizza-menu-container">
+            </div>
+       </div>
+   <script src="app.js"></script>
+   </body>
+</html>
+
